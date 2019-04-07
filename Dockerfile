@@ -1,5 +1,5 @@
 FROM java
-MAINTAINER aqssxlzc@gmail.com
+MAINTAINER rlc@vlinder.ca
 ARG version=4.7.2
 
 RUN wget https://www.antlr.org/download/antlr-${version}-complete.jar -P /usr/local/lib
