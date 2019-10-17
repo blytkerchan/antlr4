@@ -1,4 +1,4 @@
-FROM java
+FROM arm32v7/openjdk:7
 MAINTAINER rlc@vlinder.ca
 ARG version=4.7.2
 
