@@ -1,7 +1,8 @@
-FROM java
+FROM eclipse-temurin:17-jre
 MAINTAINER rlc@vlinder.ca
 ARG version=4.7.2
 
+RUN apt-get update && apt-get install -y --no-install-recommends unzip wget && rm -rf /var/lib/apt/lists/*
 RUN wget https://www.antlr.org/download/antlr-${version}-complete.jar -P /usr/local/lib
 RUN wget https://www.antlr.org/download/antlr4-cpp-runtime-${version}-source.zip -P /usr/local/lib
 ADD files/deploy.sh /usr/bin/deploy
@@ -11,4 +12,3 @@ RUN chmod +x /usr/bin/antlr4
 ADD files/grun.sh /usr/bin/grun
 RUN chmod +x /usr/bin/grun
 ENV CLASSPATH .:/usr/local/lib/antlr-${version}-complete.jar:$CLASSPATH
-
